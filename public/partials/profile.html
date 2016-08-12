@@ -63,6 +63,7 @@
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="./beer.html">Beer</a></li>
                         <li><a href="./party.html"> Party</a></li>
+                        <li><a href="./users.html"> Users</a></li>
                         <li><a href="./friends.html"> Friends</a></li>
                         <li><a href="../../index.html"> Log Out</a></li>
                     </ul>
@@ -73,11 +74,11 @@
         <div id="profile_body">
             <div class="row">
                 <div class="col s10">
-                    <h2 class="header">{{view.name}}</h2>
+                    <h2 class="header">Hello {{view.name}}</h2>
                     <div class="card horizontal">
 
                         <div class="card-image">
-                            <img class="img" src="http://floridapolitics.com/wp-content/uploads/2015/07/beer.jpg">
+                            <img class="img" src="https://media4.giphy.com/media/z9dh5MpO0CnbG/200_s.gif">
                         </div>
 
                         <div class="card-content">
@@ -89,7 +90,7 @@
                                 </li>
                             </ul>
 
-                            <a class="waves-effect waves-light btn">Save</a>
+                            <!-- <a class="waves-effect waves-light btn">Save</a> -->
 
                             <div class="card-action">
                                 <a href="#">My Friends</a>
@@ -172,9 +173,9 @@
                 <tbody ng-repeat="beer in beers | filter:data.searchbeer | filter:data.searchBrewery">
                     <tr>
                         <td><a href="#">{{beer.name}}</a></td>
-                        <td><a href="#">{{beer.brewery}}</a></td>
-                        <td><a href="#">{{beer.style}}</a></td>
-                        <td><a href="#">{{ beer.abn }}</a></td>
+                        <td><a href="#">{{beer.glass.name}}</a></td>
+                        <td><a href="#">{{beer.style.name}}</a></td>
+                        <td><a href="#">{{ beer.abv }}</a></td>
                         <td><a><i class="material-icons">edit</i></a></td>
                         <td><a><i class="material-icons">delete_forever</i></a></td>
 

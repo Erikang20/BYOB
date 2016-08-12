@@ -28,36 +28,15 @@ app.config( function ( $routeProvider ) {
 } );
 
 
-app.controller( "ProfileController", function ( $scope ) {
+app.controller( "ProfileController", function ( $scope, $http ) {
     console.log( "profile here" );
     $scope.view = {};
     $scope.view.message = "testing profile!";
-    $scope.view.name = "Jack";
+    $scope.view.name = "Barney";
     $scope.data = {};
     $scope.data.searchbeer = '';
     $scope.data.searchBrewery = '';
 
-    //  $scope.beers = [
-    //      {
-    //          name: 'Zoe',
-    //          brewery: 'Hops and Grain Brewing',
-    //          style: 'Amber',
-    //          abn: 3.50
-    //    },
-    //
-    //      {
-    //          name: 'Sierra Nevada',
-    //          brewery: 'Sierra Nevada Brewery',
-    //          style: 'Pale Ale',
-    //          abn: 4.00
-    //    },
-    //      {
-    //          name: 'Shock Top Belgium Wht',
-    //          brewery: 'Anheuser-Busch',
-    //          style: 'Witbier',
-    //          abn: 5.00
-    //    }
-    // ];
 
     $scope.hide = function () {
         $scope.showMe = !$scope.showMe;
@@ -66,6 +45,14 @@ app.controller( "ProfileController", function ( $scope ) {
     $scope.form = function () {
         $scope.hideMe = !$scope.hideMe;
     }
+
+    var result;
+    var url = 'http://api.brewerydb.com/v2/beers/?key=4d9a0f8e023cb078745503782cabc979&name=Sierra%20Nevada%20Stout';
+    $http.get( url )
+        .success( function ( data, status, headers, config ) {
+            $scope.beers = data.data;
+            console.log( data );
+        } );
 
 } );
 
