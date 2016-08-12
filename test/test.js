@@ -3,7 +3,7 @@ var assert = require( 'assert' );
 var suite = require( './implementation' );
 var expect = require( 'chai' ).expect;
 
-describe( 'BYOB', function () {
+describe( 'BYOB connected', function () {
     it( 'should return true if we are conected', function () {
         expect( suite.connected() ).to.equal( true );
     } );

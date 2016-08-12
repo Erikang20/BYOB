@@ -1,9 +1,8 @@
 var app = angular.module( "myApp", [ 'ngRoute' ] );
 
 var urlUsers = "http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/users";
-var urlBeers = "http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/beers"
 console.log( urlUsers );
-console.log( urlBeers );
+// console.log( urlBeers );
 console.log( "angular working here" );
 
 app.config( function ( $routeProvider ) {
@@ -110,21 +109,23 @@ app.controller( 'FriendsController', function ( $scope, $http ) {
     console.log( "friends here" );
 
     //  $scope.friends = [];
+    //
+    //
+    $http.get( "http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/users" )
+        .success( function ( data, status, headers, config ) {
 
-    var req = {
-        method: 'GET',
-        url: 'http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/users',
-        headers: {
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQ2hyaXMiLCJhZG1pbiI6dHJ1ZSwidGhpbmciOiJncmVhdCIsImlhdCI6MTQ3MTAxMzYyNn0.0b0yOBNdIZpdco4PanJC64Ch24Cjn3_ItNkYfJAPcMg'
-        },
-        //   data: {}
-        //   //   $scope.friends = data;
-    }
-    $http( req ).then( function ( data, status, headers, config ) {
-        $scope.friends = data;
-        console.log( status );
+            $scope.users = data;
+            console.log( data );
+        } );
 
-    } );
+
+
+    //  }
+    //  $http( req ).then( function ( data, status, headers, config ) {
+    //      $scope.friends = data;
+    //      console.log( status );
+    //
+    //  } );
 } );
 
 app.controller( 'partyController', function ( $scope ) {
@@ -137,18 +138,25 @@ app.controller( 'UserController', function ( $scope, $http ) {
     $scope.dataService = null;
     $scope.search = 'users';
     var users = [];
-    $http.defaults.headers.common[ "X-Custom-Header" ] = "Angular.js";
-
+    //  $http.defaults.headers.common[ "X-Custom-Header" ] = "Angular.js";
 
 
     $http.get( "http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/users" )
         .success( function ( data, status, headers, config ) {
 
-            // config.EnableCors();
-
-            // dataType: 'jsonp',
             $scope.users = data;
             console.log( data );
         } );
+    var urlBeers = "http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/beers"
 
-} );;
+    $http.get( urlBeers )
+        .success( function ( results, status, headers, config ) {
+            $scope.beers = results;
+            console.log( results );
+        } );
+
+    $scope.hide = function () {
+        $scope.showMe = !$scope.showMe;
+    }
+
+} );

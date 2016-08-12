@@ -108,7 +108,7 @@
                         <div class="card-content" ng-repeat="beer in user.beers">
                             <!-- <h4>{{user.beers}}</h4> -->
                             <ul>
-                                <li>{{beer.name}}</li>
+                                <li><strong>Beer Name: </strong>{{beer.name}}</li>
                                 <li ng-if="beer.fav">FAVORITE!</li>
                             </ul>
                             <span><strong>Notes: </strong> {{beer.notes}}</span>
@@ -116,14 +116,38 @@
                         </div>
                         <div class="card-action">
                             <a href="#">My Top Five beers</a>
-                            <a class="pull-right" href="#">My beers</a>
 
+                            <!-- Modal Trigger -->
+                            <a ng-click="hide()" class="modal-trigger pull-right" href="#modal1">My beers</a>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div id="modal1" class="user_beer modal" ng-repeat="beer in beers" ng-if="showMe">
+                <!-- Modal Structure -->
+                <div class="modal-content">
+                    <h4>Favorite Beers</h4>
+                    <p>{{beer.name}}</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Add to my favorites</a>
+                </div>
+            </div>
         </div>
+
+        <footer class="page-footer grey darken-4" id="footer">
+            <div class="container">
+                <div class="footer-social">
+                    <ul class="footer-social">
+                        <li class="wow animated zoomIn"><a href="https://www.facebook.com/"><i class="fa fa-thumbs-up fa-3x"></i></a></li>
+                        <li class="wow animated zoomIn" data-wow-delay="0.3s"><a href="https://twitter.com"><i class="fa fa-twitter fa-3x"></i></a></li>
+                        <li class="wow animated zoomIn" data-wow-delay="0.3s"><a href="https://www.instagram.com"><i class="fa fa-instagram fa-3x"></i></a></li>
+                    </ul>
+                    <p class="copyright">Copyright &copy; 2016 Design and Developed By Chris Impicciche and Erika Angarita</p>
+                </div>
+            </div>
+        </footer>
     </body>
 
 </html>
