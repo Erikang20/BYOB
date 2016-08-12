@@ -71,7 +71,7 @@ app.controller( "ProfileController", function ( $scope ) {
 
 app.controller( 'BeerController', function ( $scope, $http ) {
     var result;
-    var url = 'http://api.brewerydb.com/v2/styles?key=4d9a0f8e023cb078745503782cabc979&format=json/';
+    var url = 'http://api.brewerydb.com/v2/beers/?key=4d9a0f8e023cb078745503782cabc979&name=Zoe';
     $http.get( url )
         .success( function ( data, status, headers, config ) {
             $scope.beers = data.data;
@@ -82,26 +82,12 @@ app.controller( 'BeerController', function ( $scope, $http ) {
 
         $( "#availableBeer" ).autocomplete( {
             minLength: 0,
-            source: 'http://api.brewerydb.com/v2/styles?key=4d9a0f8e023cb078745503782cabc979&format=json/'
+            source: 'http://api.brewerydb.com/v2/beers/?key=4d9a0f8e023cb078745503782cabc979&name=Zoe'
 
         } );
         console.log( 'availableBeer' );
     };
 
-    //  $scope.sendPost = function () {
-    //      var data = $.param( {
-    //          json: JSON.stringify( {
-    //              name: $scope.beer.name
-    //          } )
-    //      } )
-    //
-    //      result = $http.post( '../beer.html', data )
-    //          .success( function ( data, status ) {
-    //              result = data;
-    //              console.log( result );
-    //          } );
-    //      return result;
-    //  }
     console.log( "beer here" );
     $scope.data = {};
     $scope.data.searchbeers = '';
@@ -140,13 +126,30 @@ app.controller( 'FriendsController', function ( $scope, $http ) {
 
     //  $scope.friends = [];
 
-    var result;
-    var url = 'http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/users';
-    $http.get( url )
-        .success( function ( data, status, headers, config ) {
-            $scope.friends = data;
-            console.log( $scope.friends );
-        } );
+    var req = {
+        method: 'GET',
+        url: 'http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/users',
+        headers: {
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQ2hyaXMiLCJpYXQiOjE0NzA5NDkxNzl9.9UiFEoMdkXlmnmhx9nsCzCFsV1Tu5GJ8E_7gZ-6ImVc'
+        },
+        //   data: {}
+        //   //   $scope.friends = data;
+    }
+    $http( req ).then( function ( data, status, headers, config ) {
+        $scope.friends = data;
+
+    } )
+
+    //  var result;
+    //  var url = 'http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/users';
+    //  $http.get( url )
+    //      .success( function ( data, status, headers, config ) {
+    //          headers: {
+    //              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQ2hyaXMiLCJpYXQiOjE0NzA5NDkxNzl9.9UiFEoMdkXlmnmhx9nsCzCFsV1Tu5GJ8E_7gZ-6ImVc'
+    //          }
+    //          $scope.friends = data;
+    //          console.log( $scope.friends );
+    //      } );
 
 } );
 
