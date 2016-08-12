@@ -83,7 +83,6 @@ app.controller( 'BeerController', function ( $scope, $http ) {
         $( "#availableBeer" ).autocomplete( {
             minLength: 0,
             source: 'http://api.brewerydb.com/v2/beers/?key=4d9a0f8e023cb078745503782cabc979&name=Zoe'
-
         } );
         console.log( 'availableBeer' );
     };
@@ -117,8 +116,6 @@ app.controller( 'BeerController', function ( $scope, $http ) {
     $scope.hide = function () {
         $scope.showMe = !$scope.showMe;
     }
-
-
 } );
 
 app.controller( 'FriendsController', function ( $scope, $http ) {
@@ -139,10 +136,7 @@ app.controller( 'FriendsController', function ( $scope, $http ) {
         $scope.friends = data;
         console.log( status );
 
-    } )
-
-
-
+    } );
 } );
 
 app.controller( 'partyController', function ( $scope ) {

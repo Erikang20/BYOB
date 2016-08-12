@@ -123,7 +123,7 @@
         <!-- =========================== -->
         <!-- display results -->
         <!-- =========================== -->
-        <div class="container" ng-repeat="beer in beers">
+        <div class="container" ng-repeat="beer in beers | filter: autocomplete">
             <ul class="collapsible popout" data-collapsible="accordion">
                 <li>
                     <a class="collapsible-header popout"><i class="fa fa-beer" aria-hidden="true"></i>{{beer.name}}</a>
