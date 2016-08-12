@@ -147,13 +147,28 @@ app.controller( 'UserController', function ( $scope, $http ) {
             $scope.users = data;
             console.log( data );
         } );
-    var urlBeers = "http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/beers"
 
+    var urlBeers = "http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/beers"
     $http.get( urlBeers )
         .success( function ( results, status, headers, config ) {
             $scope.beers = results;
             console.log( results );
         } );
+
+    //  $scope.sendData = function () {
+    //      var data = $.param( {
+    //          bname = $scope.beer.name
+    //      } )
+    //  }
+
+    //  $http.post( urlBeers, data, config )
+    //      .success( function ( data, status, headers, config ) {
+    //          $scope.PostDataResponse = data;
+    //      } )
+    //      .error( function ( data, status, header, config ) {
+    //          $scope.ResponseDetails = "data" + data
+    //      } );
+
 
     $scope.hide = function () {
         $scope.showMe = !$scope.showMe;

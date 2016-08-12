@@ -20,7 +20,7 @@ app.on( 'ready', () => {
         }
     } );
     win.loadURL( `file://${__dirname}/index.html` );
-    win.openDevTools();
+    //  win.openDevTools();
 
     let contents = win.webContents
 
@@ -35,7 +35,7 @@ let onlineStatusWindow
 exports.openWindow = () => {
     let win = new BrowserWindow( { width: 900, height: 800 } )
     win.loadURL( `file://${__dirname}/public/profile.html` );
-    win.openDevTools();
+    //  win.openDevTools();
 
 };
 

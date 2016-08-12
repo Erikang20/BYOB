@@ -479,6 +479,12 @@ table{
   padding: 10px;
 }
 
-/*.card-name{
-  text-align: center;
-}*/
+.user_name{
+padding: 10px;
+margin: 10px;
+
+}
+
+.modal1{
+  background-color: green;
+}

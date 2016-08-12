@@ -15,7 +15,8 @@ $( document ).ready( function () {
     $( '.collapsible' ).collapsible( {
         accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     } );
-    $( '.modal-trigger' ).leanModal();
+
+    $( '#modal1' ).leanModal();
 
     console.log( "document is ready here" );
 } );
