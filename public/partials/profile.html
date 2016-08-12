@@ -118,6 +118,8 @@
                                     <div class="input-field col s8">
                                         <input type="text">
                                         <label class="active" for="brewery">Brewery</label>
+                                        <a class="waves-effect waves-light btn pull-right blue accent-2">Save</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +158,7 @@
             </div>
 
 
-            <table class="highlight bordered responsive-table">
+            <table class="highlight bordered">
                 <h3 class="center">My beers</h3>
                 <thead>
                     <tr>
@@ -166,7 +168,6 @@
                         <th data-field="price">ABN</th>
                         <th data-field="edit"></th>
                         <th data-field="delete"></th>
-
                     </tr>
                 </thead>
 
@@ -176,8 +177,8 @@
                         <td><a href="#">{{beer.glass.name}}</a></td>
                         <td><a href="#">{{beer.style.name}}</a></td>
                         <td><a href="#">{{ beer.abv }}</a></td>
-                        <td><a><i class="material-icons">edit</i></a></td>
-                        <td><a><i class="material-icons">delete_forever</i></a></td>
+                        <td><a href="#"><i class="material-icons">edit</i></a></td>
+                        <td><a href="#"><i class="material-icons">delete_forever</i></a></td>
 
                     </tr>
                 </tbody>

@@ -47,7 +47,8 @@ app.controller( "ProfileController", function ( $scope, $http ) {
     }
 
     var result;
-    var url = 'http://api.brewerydb.com/v2/beers/?key=4d9a0f8e023cb078745503782cabc979&name=Sierra%20Nevada%20Stout';
+    //  var url = 'http://api.brewerydb.com/v2/beers/?key=4d9a0f8e023cb078745503782cabc979&name=Sierra%20Nevada%20Stout';
+    var url = 'http://api.brewerydb.com/v2/beers/?key=4d9a0f8e023cb078745503782cabc979&name=Sierra%20Nevada%20Stout&name=Little%20Sumpin%27%20Sumpin%27';
     $http.get( url )
         .success( function ( data, status, headers, config ) {
             $scope.beers = data.data;
