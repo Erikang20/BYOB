@@ -83,9 +83,9 @@
                 </div>
             </nav>
         </header>
-        <h1>users here!</h1>
 
         <div class="container">
+            <h1>Users</h1>
 
             <!-- add new users -->
             <form name="usersForm" method="POST" novalidate>
@@ -101,15 +101,18 @@
             <div ng-repeat="user in users" class="row">
                 <div class="col s6">
                     <div class="card">
-                        <span class="card-title">{{user.name}}</span>
+                        <h3 class="card-title center-align"> {{user.name}}</h3>
                         <div class="card-image">
                             <img ng-src="{{}}">
                         </div>
                         <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </div>
                         <div class="card-action">
-                            <a href="#">This is a link</a>
+                            <a href="#">My Top Five beers</a>
+                            <a class="pull-right" href="#">My beers</a>
+
                         </div>
                     </div>
                 </div>

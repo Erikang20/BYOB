@@ -130,26 +130,18 @@ app.controller( 'FriendsController', function ( $scope, $http ) {
         method: 'GET',
         url: 'http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/users',
         headers: {
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQ2hyaXMiLCJpYXQiOjE0NzA5NDkxNzl9.9UiFEoMdkXlmnmhx9nsCzCFsV1Tu5GJ8E_7gZ-6ImVc'
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQ2hyaXMiLCJhZG1pbiI6dHJ1ZSwidGhpbmciOiJncmVhdCIsImlhdCI6MTQ3MTAxMzYyNn0.0b0yOBNdIZpdco4PanJC64Ch24Cjn3_ItNkYfJAPcMg'
         },
         //   data: {}
         //   //   $scope.friends = data;
     }
     $http( req ).then( function ( data, status, headers, config ) {
         $scope.friends = data;
+        console.log( status );
 
     } )
 
-    //  var result;
-    //  var url = 'http://ec2-52-35-89-81.us-west-2.compute.amazonaws.com:9001/users';
-    //  $http.get( url )
-    //      .success( function ( data, status, headers, config ) {
-    //          headers: {
-    //              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiQ2hyaXMiLCJpYXQiOjE0NzA5NDkxNzl9.9UiFEoMdkXlmnmhx9nsCzCFsV1Tu5GJ8E_7gZ-6ImVc'
-    //          }
-    //          $scope.friends = data;
-    //          console.log( $scope.friends );
-    //      } );
+
 
 } );
 
